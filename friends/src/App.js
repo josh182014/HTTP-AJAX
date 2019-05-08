@@ -29,12 +29,17 @@ class App extends React.Component {
     //     this.setState({ items: data });
   }
 
+  addFriend = (props) => {
+    console.log('inside App!!!', props)
+    this.setState({ friends:[...this.state.friends, props] })
+  }
+
   render() {
     console.log('friends', this.state.friends)
     return (
       <div className="App">
         <p>My Awesome Friends App</p>
-        <FriendsList friends={this.state.friends} />
+        <FriendsList friends={this.state.friends} addFriend={this.addFriend} />
       </div>
     );
   }

@@ -14,6 +14,7 @@ class FriendsList extends React.Component {
     FormHandler = (event) => {
         event.preventDefault()
         console.log('added!', event.target)
+        this.props.addFriend(this.state)
     }
     
     ChangeHandler = (event) => {
