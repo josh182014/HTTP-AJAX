@@ -32,25 +32,46 @@ class App extends React.Component {
 
   addFriend = (event, props) => {
     event.preventDefault()
-      axios
-        .post(`http://localhost:5000/friends`, props)
-        .then(response => {
-          console.log('response', response);
-          this.setState({
-            friends: response.data,
-            postSuccessMessage: response.data.successMessage,
-            postError: ""
-          });
-        })
-
-        .catch(err => {
-          console.log(err);
-          this.setState({
-            postSuccessMessage: "",
-            postError: err.response.data.Error
-          });
+    axios
+      .post(`http://localhost:5000/friends`, props)
+      .then(response => {
+        console.log('response', response);
+        this.setState({
+          friends: response.data,
+          postSuccessMessage: response.statusText,
+          postError: ""
         });
-    };
+      })
+
+      .catch(err => {
+        console.log(err);
+        this.setState({
+          postSuccessMessage: "",
+          postError: err.response.data.Error
+        });
+      });
+  };
+
+  deleteFriend = (props) => {
+    axios
+      .delete(`http://localhost:5000/friends/${props}`, props)
+      .then(response => {
+        console.log('response', response);
+        this.setState({
+          friends: response.data,
+          postSuccessMessage: response.statusText,
+          postError: ""
+        });
+      })
+
+      .catch(err => {
+        console.log(err);
+        this.setState({
+          postSuccessMessage: "",
+          postError: err.response.data.Error
+        });
+      });
+  };
 
   render() {
     console.log(this.state.friends)
@@ -58,7 +79,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <p>My Awesome Friends App</p>
-        <FriendsList friends={this.state.friends} addFriend={this.addFriend} />
+        <FriendsList friends={this.state.friends} addFriend={this.addFriend} deleteFriend={this.deleteFriend} />
       </div>
     );
   }
