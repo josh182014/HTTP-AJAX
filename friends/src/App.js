@@ -9,6 +9,8 @@ class App extends React.Component {
     super()
     this.state = {
       friends: [],
+      postSuccessMessage: '',
+      postError: '',
     }
   }
 
@@ -18,7 +20,6 @@ class App extends React.Component {
     axios
       .get('http://localhost:5000/friends')
       .then(res => {
-        console.log(res);
         this.setState({ friends: res.data });
       })
       .catch(err => {
@@ -29,12 +30,31 @@ class App extends React.Component {
     //     this.setState({ items: data });
   }
 
-  addFriend = (props) => {
-    this.setState({ friends:[...this.state.friends, props] })
-  }
+  addFriend = (event, props) => {
+    event.preventDefault()
+      axios
+        .post(`http://localhost:5000/friends`, props)
+        .then(response => {
+          console.log('response', response);
+          this.setState({
+            friends: response.data,
+            postSuccessMessage: response.data.successMessage,
+            postError: ""
+          });
+        })
+
+        .catch(err => {
+          console.log(err);
+          this.setState({
+            postSuccessMessage: "",
+            postError: err.response.data.Error
+          });
+        });
+    };
 
   render() {
-    console.log('friends', this.state.friends)
+    console.log(this.state.friends)
+    console.log(this.state)
     return (
       <div className="App">
         <p>My Awesome Friends App</p>

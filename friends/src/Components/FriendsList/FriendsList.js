@@ -13,13 +13,11 @@ class FriendsList extends React.Component {
     }
 
     FormHandler = (event) => {
-        event.preventDefault()
-        console.log('added!', event.target)
-        this.props.addFriend(this.state)
+        this.props.addFriend(event, this.state)
+        this.setState({ name: '', age: '', email: '', id: '' })
     }
     
     ChangeHandler = (event) => {
-        console.log(event.target.value)
         this.setState({[event.target.name]: event.target.value, id: Date.now()})
     }
 
