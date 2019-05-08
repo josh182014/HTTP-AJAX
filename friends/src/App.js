@@ -95,11 +95,9 @@ class App extends React.Component {
   };
 
   render() {
-    console.log(this.state.friends)
-    console.log(this.state)
     return (
       <div className="App">
-        <p>My Awesome Friends App</p>
+        <p>My Awesome Friends App (Wow look how many friends I have)</p>
         <FriendsList friends={this.state.friends} addFriend={this.addFriend} deleteFriend={this.deleteFriend} updateFriend={this.updateFriend} />
       </div>
     );

@@ -34,23 +34,26 @@ class FriendsList extends React.Component {
                     </div>
                 ))}
                 <form onSubmit={this.FormHandler}>
-                    <input 
+                    <input required
                         placeholder={'Name'}
+                        autoComplete='off'
                         value={this.state.name}
                         name='name'
                         onChange={this.ChangeHandler}>
                     </input>
                     <input 
                         placeholder={'Age'}
+                        autoComplete='off'
                         value={this.state.age}
                         name='age'
                         onChange={this.ChangeHandler}>
                     </input>
                     <input 
                         placeholder={'Email'}
+                        autoComplete='off'
                         value={this.state.email}
                         name='email'
-                        onChange={this.ChangeHandler}>
+                        onChange={this.ChangeHandler}> 
                     </input>
                     <button type='submit'>Add Friend</button>
                 </form>
