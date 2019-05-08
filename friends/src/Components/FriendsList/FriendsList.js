@@ -26,7 +26,7 @@ class FriendsList extends React.Component {
             <div>
                 {this.props.friends.map(friend => (
                     <div key={friend.id}>
-                        <Friend friend={friend} key={friend.id} deleteFriend={this.props.deleteFriend} />
+                        <Friend friend={friend} key={friend.id} deleteFriend={this.props.deleteFriend} updateFriend={this.props.updateFriend} formData={this.state} />
                     </div>
                 ))}
                 <form onSubmit={this.FormHandler}>

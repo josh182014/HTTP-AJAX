@@ -52,23 +52,44 @@ class App extends React.Component {
       });
   };
 
-  deleteFriend = (props) => {
+  updateFriend = (props, data) => {
     axios
-      .delete(`http://localhost:5000/friends/${props}`, props)
+      .put(`http://localhost:5000/friends/${props}`, data)
       .then(response => {
         console.log('response', response);
         this.setState({
           friends: response.data,
-          postSuccessMessage: response.statusText,
-          postError: ""
+          deleteSuccessMessage: response.statusText,
+          deleteError: ""
         });
       })
 
       .catch(err => {
         console.log(err);
         this.setState({
-          postSuccessMessage: "",
-          postError: err.response.data.Error
+          deleteSuccessMessage: "",
+          deleteError: err.response.data.Error
+        });
+      });
+  };
+
+  deleteFriend = (props) => {
+    axios
+      .delete(`http://localhost:5000/friends/${props}`)
+      .then(response => {
+        console.log('response', response);
+        this.setState({
+          friends: response.data,
+          deleteSuccessMessage: response.statusText,
+          deleteError: ""
+        });
+      })
+
+      .catch(err => {
+        console.log(err);
+        this.setState({
+          deleteSuccessMessage: "",
+          deleteError: err.response.data.Error
         });
       });
   };
@@ -79,7 +100,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <p>My Awesome Friends App</p>
-        <FriendsList friends={this.state.friends} addFriend={this.addFriend} deleteFriend={this.deleteFriend} />
+        <FriendsList friends={this.state.friends} addFriend={this.addFriend} deleteFriend={this.deleteFriend} updateFriend={this.updateFriend} />
       </div>
     );
   }
