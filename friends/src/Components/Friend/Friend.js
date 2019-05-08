@@ -3,6 +3,7 @@ import React from 'react';
 function Friend(props) {
     const updateFriend = () => {
         props.updateFriend(props.friend.id, props.formData)
+        props.UpdateFormHandler()
     }
 
     const deleteFriend = () => {
@@ -12,8 +13,8 @@ function Friend(props) {
     return (
     <div>
         Name: <strong>{props.friend.name}</strong> Age: {props.friend.age}
-        <div onClick={updateFriend}>Update</div>
-        <div onClick={deleteFriend}>Delete</div>
+        <button onClick={updateFriend}>Update</button>
+        <button onClick={deleteFriend}>Delete</button>
     </div>
     )
 }
