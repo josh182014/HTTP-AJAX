@@ -30,7 +30,6 @@ class App extends React.Component {
   }
 
   addFriend = (props) => {
-    console.log('inside App!!!', props)
     this.setState({ friends:[...this.state.friends, props] })
   }
 
