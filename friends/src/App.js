@@ -1,7 +1,7 @@
 import React from 'react';
 import FriendsList from './Components/FriendsList/FriendsList'
 import axios from 'axios'
-import './App.css';
+import './App.scss';
 
 class App extends React.Component {
 
@@ -97,7 +97,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <p>My Awesome Friends App (Wow look how many friends I have)</p>
+        <h1>My Awesome Friends App</h1>
         <FriendsList friends={this.state.friends} addFriend={this.addFriend} deleteFriend={this.deleteFriend} updateFriend={this.updateFriend} />
       </div>
     );

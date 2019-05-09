@@ -27,36 +27,39 @@ class FriendsList extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='FriendsListContainer'>
                 {this.props.friends.map(friend => (
-                    <div key={friend.id}>
+                    <div className='friendContainer' key={friend.id}>
                         <Friend friend={friend} key={friend.id} deleteFriend={this.props.deleteFriend} updateFriend={this.props.updateFriend} formData={this.state} UpdateFormHandler={this.UpdateFormHandler} />
                     </div>
                 ))}
-                <form onSubmit={this.FormHandler}>
-                    <input required
-                        placeholder={'Name'}
-                        autoComplete='off'
-                        value={this.state.name}
-                        name='name'
-                        onChange={this.ChangeHandler}>
-                    </input>
-                    <input 
-                        placeholder={'Age'}
-                        autoComplete='off'
-                        value={this.state.age}
-                        name='age'
-                        onChange={this.ChangeHandler}>
-                    </input>
-                    <input 
-                        placeholder={'Email'}
-                        autoComplete='off'
-                        value={this.state.email}
-                        name='email'
-                        onChange={this.ChangeHandler}> 
-                    </input>
-                    <button type='submit'>Add Friend</button>
-                </form>
+                <div className='friendForm'>
+                    <h2>Add Friend!</h2>
+                    <form onSubmit={this.FormHandler}>
+                        <input required
+                            placeholder={'Name'}
+                            autoComplete='off'
+                            value={this.state.name}
+                            name='name'
+                            onChange={this.ChangeHandler}>
+                        </input>
+                        <input 
+                            placeholder={'Age'}
+                            autoComplete='off'
+                            value={this.state.age}
+                            name='age'
+                            onChange={this.ChangeHandler}>
+                        </input>
+                        <input 
+                            placeholder={'Email'}
+                            autoComplete='off'
+                            value={this.state.email}
+                            name='email'
+                            onChange={this.ChangeHandler}> 
+                        </input>
+                        <button type='submit'>Add Friend</button>
+                    </form>
+                </div>
             </div>
         )
     }

@@ -33,10 +33,22 @@ function Friend(props) {
     }
     updatedFriend()
     return (
-    <div>
-        Name: <strong>{props.friend.name}</strong> Age: {props.friend.age}
-        <button onClick={updateFriend}>Update</button>
-        <button onClick={deleteFriend}>Delete</button>
+    <div className='friendWholeContainer'>
+        <div className="FriendContainer">
+            <div className='friendName'>
+                Name:<strong>{props.friend.name}</strong>
+            </div>
+            <div className='friendAge'>
+            Age: {props.friend.age}
+            </div>
+            <div className='friendAge'>
+            Email: {props.friend.email}
+            </div>
+        </div>
+        <div className='buttons'>
+            <button onClick={updateFriend}>Update</button>
+            <button onClick={deleteFriend}>Delete</button>
+        </div>
     </div>
     )
 }
