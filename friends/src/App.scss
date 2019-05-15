@@ -1,0 +1,71 @@
+.App {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 800px;
+  
+  .friendContainer {
+    height: 120px;
+  }
+
+    .FriendsListContainer {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      width: 100%;
+
+      .friendWholeContainer {
+        display: flex;
+        flex-wrap: wrap;
+        width: 95%;
+        align-items: center;
+        border-bottom: 1px solid gray;
+        margin-left: 2.5%;
+
+        .FriendContainer {
+          width: 70%;
+          margin: 20px;
+          padding-bottom: 15px;
+          text-align: start;
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: column;
+        }
+        .buttons {
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: column;
+          button {
+            margin: 2px;
+            width: 75px;
+            height: 30px;
+          }
+        }
+      }
+      .friendForm {
+        text-align: center;
+        margin-top: 70px;
+        padding: 10px;
+        position: fixed;
+        top: 74%;
+        background-color: lightgray;
+        width: 100vw;
+        height: 150px;
+        align-content: center;
+        align-items: center;
+
+        input {
+          margin: 5px;
+          height: 20px;
+          width: 20%;
+        }
+
+        button {
+          height: 27px;
+          margin: 5px;
+        }
+      }
+    }
+  .FriendsListContainer:last-child {
+    margin-bottom: 150px;
+  }
+}
